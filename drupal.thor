@@ -12,6 +12,16 @@ class Drupal < Thor
     system("tar -xvzf #{archive_name}")
     system("mv #{folder_name} #{name}")
     system("rm #{archive_name}")
+
+    Dir.chdir(name)
+    drush_site_install(name)
+  end
+
+  private
+
+  def drush_site_install(name)
+    command = "drush site-install standard --db-url=mysql://root:123@localhost/#{name} --account-name=admin --account-pass=123 --db-su=root --db-su-pw=123 --site-name=\"Your Website\""
+    system(command)
   end
 
 end

@@ -24,7 +24,6 @@ class Db < Thor
     system(command)
   end
 
-  #mysql --host=127.0.0.1 --port=3308 --user=desirae --password=E7ixPmWI
   desc "connect to remote database", "launch the mysql terminal for the remote database"
   def remote(user, password, host='127.0.0.1', port=3308)
     start_tunnel_command = "pagoda -a allianceandalliance tunnel -c db1 &"
@@ -35,10 +34,8 @@ class Db < Thor
     sleep 4
 
     system(command)
-
   end
 
-    #mysql --host=127.0.0.1 --port=3308 --user=desirae --password=E7ixPmWI
   desc "connect to remote database", "launch the mysql terminal for the remote database"
   def rimport(user, password, host='127.0.0.1', port=3308)
     start_tunnel_command = "pagoda -a allianceandalliance tunnel -c db1 &"
@@ -49,7 +46,6 @@ class Db < Thor
     sleep 4
 
     system(import_command)
-
   end
 
   private

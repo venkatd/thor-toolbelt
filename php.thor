@@ -26,5 +26,10 @@ class Php < Thor
     puts "Switched web directory to #{web_dir}."
   end
 
+  desc "view logs", "view apache error logs"
+  def logs
+    system("nautilus /var/log/apache2")
+  end
+
 end
 
